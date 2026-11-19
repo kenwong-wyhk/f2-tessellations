@@ -8,12 +8,17 @@ There is no login, no analytics, and no student data. The page is HTML, CSS, and
 
 ## GitHub Pages
 
-**Settings → Pages → Build and deployment → Deploy from a branch**
+`.nojekyll` is included so Jekyll does not rewrite the site. Publish from the branch root. This pull request could not change repository settings, so turn the site on after merging:
 
-- Branch: `main`
-- Folder: `/ (root)`
+1. **Settings → Pages → Build and deployment → Deploy from a branch**
+2. Branch: `main`
+3. Folder: `/ (root)`
+4. Save.
 
-After this pull request is merged, that setting publishes this folder. `.nojekyll` is included so Jekyll does not rewrite the site.
+On the repository home page, edit **About** and set:
+
+- Description: `Form 2 interactive demo: which regular polygons tessellate the plane?`
+- Website: `https://kenwong-wyhk.github.io/f2-tessellations/`
 
 ## Files
 
