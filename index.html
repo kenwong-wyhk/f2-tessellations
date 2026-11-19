@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regular Tessellations · Form 2</title>
+<meta name="description" content="A regular polygon tiles the plane only when 360° is divisible by its interior angle. Form 2 mathematics demo.">
+<meta name="theme-color" content="#004898">
+<meta name="color-scheme" content="light">
+<meta name="referrer" content="no-referrer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regular Tessellations — Form 2">
+<meta property="og:description" content="Place copies of one regular polygon around a point and see which polygons tessellate the plane.">
+<meta property="og:url" content="https://kenwong-wyhk.github.io/f2-tessellations/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="vendor/fonts/NotoSansHK-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/Oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-head">
+  <p class="brand-kicker">WYHK · Form 2 Mathematics</p>
+  <h1>Regular Tessellations</h1>
+</header>
+<div class="cross-rule" aria-hidden="true"></div>
+<main>
+  <p class="lead">A regular polygon can tile the plane only when 360° is divisible by its interior angle, so copies meet at a point with no gap and no overlap.</p>
+
+  <section class="demo" aria-labelledby="around-heading">
+    <h2 id="around-heading">Around a point</h2>
+    <p class="caption">Place copies of one regular polygon at a single vertex and compare the angle sum with 360°.</p>
+    <noscript>
+      <p class="key">This demo needs JavaScript to place the polygons. The explanation below still describes the test. Turn JavaScript on, then reload the page.</p>
+    </noscript>
+    <div class="controls">
+      <label class="field" for="poly">Regular polygon
+        <select id="poly"></select>
+      </label>
+      <div class="btn-row">
+        <button type="button" class="btn" id="place">Place next</button>
+        <button type="button" class="btn ghost" id="play">Play</button>
+        <button type="button" class="btn ghost" id="reset">Reset</button>
+        <button type="button" class="btn ghost" id="more">Try one more</button>
+        <label class="toggle" for="fill">
+          <input type="checkbox" id="fill">
+          <span>Fill the plane</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <article class="metric" id="m0">
+        <p class="metric-label" id="m0l">Interior angle</p>
+        <p class="metric-value" id="m0v"></p>
+        <p class="metric-detail" id="m0d" hidden></p>
+      </article>
+      <article class="metric" id="m1">
+        <p class="metric-label" id="m1l">360° ÷ interior angle</p>
+        <p class="metric-value" id="m1v"></p>
+        <p class="metric-detail" id="m1d"></p>
+      </article>
+      <article class="metric" id="m2">
+        <p class="metric-label" id="m2l">Angle sum at a point</p>
+        <p class="metric-value" id="m2v"></p>
+        <p class="metric-detail" id="m2d"></p>
+      </article>
+    </div>
+
+    <div class="board-wrap">
+      <p class="board-title" id="board-title"></p>
+      <p class="board-sub" id="board-sub"></p>
+      <svg id="board" class="board" viewBox="0 0 860 520" width="860" height="520" role="img" aria-label="Regular polygon copies around a point, with interior angles compared to 360 degrees"></svg>
+      <p class="board-foot" id="board-foot"></p>
+    </div>
+
+    <div id="callout" class="callout info" aria-live="polite">
+      <p id="lead" class="lead"></p>
+      <p id="note"></p>
+    </div>
+  </section>
+
+  <section aria-labelledby="test-heading">
+    <h2 id="test-heading">The divisibility test</h2>
+    <p>Tessellation means covering the plane with copies of a shape, with no gaps and no overlaps. If only one regular polygon is used, every vertex looks the same: the same number of copies must fit around a point.</p>
+    <p>The interior angle of a regular <span class="var">n</span>-sided polygon is</p>
+    <div class="display-math">
+      <p class="sr">the fraction (n minus 2) over n, times 180 degrees.</p>
+      <div class="display-row" aria-hidden="true">
+        <span class="frac">
+          <span class="num"><span class="var">n</span> − 2</span>
+          <span class="den"><span class="var">n</span></span>
+        </span>
+        <span>× 180°</span>
+      </div>
+    </div>
+    <p>Around a point those interior angles must add to exactly 360°. Equivalently, 360° divided by the interior angle must be an integer that is at least 3:</p>
+    <div class="display-math">
+      <p class="sr">360 degrees divided by the interior angle equals the fraction 2n over (n minus 2).</p>
+      <div class="display-row" aria-hidden="true">
+        <span class="frac">
+          <span class="num">360°</span>
+          <span class="den">interior angle</span>
+        </span>
+        <span>=</span>
+        <span class="frac">
+          <span class="num"><span class="var">2n</span></span>
+          <span class="den"><span class="var">n</span> − 2</span>
+        </span>
+      </div>
+    </div>
+    <div class="key">
+      <p>If the result is not an integer, a whole number of copies either leaves a gap or overlaps, so that regular polygon cannot tessellate the plane by itself. Only the equilateral triangle, the square, and the regular hexagon pass the test.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="table-heading">
+    <h2 id="table-heading">Check each regular polygon</h2>
+    <p class="caption">360° ÷ interior angle equals 2n / (n − 2). It must be an integer of at least 3.</p>
+    <p class="scroll-hint">Scroll sideways to see every column.</p>
+    <div class="table-wrap">
+      <table class="plain">
+        <thead>
+          <tr>
+            <th scope="col">Regular polygon</th>
+            <th scope="col" class="num">n</th>
+            <th scope="col" class="num">Interior angle</th>
+            <th scope="col" class="num">360° ÷ interior angle</th>
+            <th scope="col">Tessellate?</th>
+          </tr>
+        </thead>
+        <tbody id="summary-body"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <p>For WYHK Form 2 students. A teaching demo by Mr Wong.</p>
+  <p>Nothing on this page is saved, and the page does not send anything to a server.</p>
+</footer>
+<script src="js/geometry.js"></script>
+<script src="js/demo.js"></script>
+</body>
+</html>
