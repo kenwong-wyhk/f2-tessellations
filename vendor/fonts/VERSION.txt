@@ -1,0 +1,10 @@
+Oswald and Noto Sans HK — Latin subsets, variable weight.
+Licence: SIL Open Font License 1.1 (OFL-Oswald.txt, OFL-NotoSansHK.txt).
+The font files live in this repository so a student's browser does not request them from anywhere else.
+
+Oswald: Copyright 2016 The Oswald Project Authors (https://github.com/googlefonts/OswaldFont)
+Noto Sans HK: Copyright 2014-2021 Adobe, with Reserved Font Name "Source".
+
+SHA-256:
+03d3ea77d9d4e59607db97cefa48689ce27ff29a065fb357ec07e37401f087b9 *NotoSansHK-latin.woff2
+571f3457dab507b6f2ce5394d593ca015251b69fea81ab7a546bd2368e9fc3ed *Oswald-latin.woff2
